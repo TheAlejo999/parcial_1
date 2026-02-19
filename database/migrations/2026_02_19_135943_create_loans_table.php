@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('library', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('ISBN')->unique();
-            $table->integer('total_copies');
-            $table->integer('available_copies');
-            $table->boolean('is_available')->default(true);
+            $table->string('solicitor_name');
+            $table->timestamp('loan_date');
+            $table->timestamp('return_date')->nullable();
+            $table->foreignId('book_id')->constrained('library')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('library');
+        Schema::dropIfExists('loans');
     }
 };
