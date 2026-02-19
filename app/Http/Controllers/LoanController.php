@@ -44,6 +44,6 @@ class LoanController extends Controller
                 'book_id' => $loan->book_id,
                 'book_title' => $book->title,
             ]
-        ]);
+        ], response::HTTP_CREATED);
     }         
 }
