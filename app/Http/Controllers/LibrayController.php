@@ -29,13 +29,8 @@ class LibrayController extends Controller
         return BookResource::collection($books);
     }
 
-    public function store(Request $request)
+    public function show(Book $book)
     {
-        // Lógica para crear un nuevo libro
-    }
-
-    public function update(Request $request, $id)
-    {
-        // Lógica para actualizar un libro existente
+        return new BookResource($book);
     }
 }
