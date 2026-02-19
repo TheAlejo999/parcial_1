@@ -1,0 +1,10 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('/users', 'LibraryController@index');
+    Route::post('/users', 'LibraryController@store');
+    Route::post('/users/{id}', 'LibraryController@update');
+});
